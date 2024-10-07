@@ -70,8 +70,8 @@ def extract_text_from_pdf(url):
 # Initialize API keys for external services
 QUANDL_API_KEY = "geynseU_xc-7esEAYHko"
 FMP_API_KEY = "GgZlhqHCsuhPbXd1UTpaBKXKPQb2Xj5T"
-#openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
-openai_api_key = "sk-YLuAgDCFtzasvndL6JK2UUKv_RSWxZjsiZJVEuHqSZT3BlbkFJvZCFIeZV2fJgiUTQImHgXIu_KwAGt5yeNW89m5QBMA"
+openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
+#openai_api_key = "sk-YLuAgDCFtzasvndL6JK2UUKv_RSWxZjsiZJVEuHqSZT3BlbkFJvZCFIeZV2fJgiUTQImHgXIu_KwAGt5yeNW89m5QBMA"
 
 # Define a function to retrieve data from Yahoo Finance
 def get_yahoo_finance_data(ticker):
