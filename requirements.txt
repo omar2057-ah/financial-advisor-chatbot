@@ -5,4 +5,7 @@ yfinance
 requests
 PyPDF2
 pandas
+financialmodelingprep
+beautifulsoup4
 langchain-openai
+pdfplumber
