@@ -1,2 +1,8 @@
 streamlit
 openai
+langchain
+yfinance
+requests
+PyPDF2
+pandas
+langchain-openai
