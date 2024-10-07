@@ -140,7 +140,10 @@ with st.form("my_form"):
         "Enter your financial query:",
         "What is the cost per hour of a software engineer with 3 years of experience?"
     )
-    ticker = st.text_input("Enter a stock ticker (e.g., AAPL for Apple):", "AAPL")
+    ticker = st.text_input("Enter a FMP stock ticker (e.g., AAPL for Apple):", "AAPL")
+    
+    # User input for an optional URL or PDF
+    user_url = st.text_input("Optionally, enter an additional financial resource (URL or PDF):", "")
     
     submitted = st.form_submit_button("Submit")
     
@@ -157,6 +160,12 @@ with st.form("my_form"):
                 financial_data_combined += extract_text_from_pdf(url) or ""
             else:
                 financial_data_combined += scrape_html_page(url) or ""
+
+        if user_url:
+            if user_url.endswith(".pdf"):
+                financial_data_combined += extract_text_from_pdf(user_url) or ""
+            else:
+                financial_data_combined += scrape_html_page(user_url) or ""
 
         # Aggregate market data
         market_data = {
