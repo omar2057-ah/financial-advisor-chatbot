@@ -3,7 +3,6 @@ from langchain.chains import SimpleSequentialChain
 from langchain.prompts import PromptTemplate
 from langchain_openai.chat_models import ChatOpenAI
 import yfinance as yf
-import quandl
 import financialmodelingprep as fmp
 import requests 
 from bs4 import BeautifulSoup
