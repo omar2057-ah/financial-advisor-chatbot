@@ -73,33 +73,11 @@ FMP_API_KEY = "GgZlhqHCsuhPbXd1UTpaBKXKPQb2Xj5T"
 #openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
 openai_api_key = "sk-YLuAgDCFtzasvndL6JK2UUKv_RSWxZjsiZJVEuHqSZT3BlbkFJvZCFIeZV2fJgiUTQImHgXIu_KwAGt5yeNW89m5QBMA"
 
-# Set API key for Quandl
-quandl.ApiConfig.api_key = QUANDL_API_KEY
-
 # Define a function to retrieve data from Yahoo Finance
 def get_yahoo_finance_data(ticker):
     stock = yf.Ticker(ticker)
     data = stock.history(period="1d")
     return data['Close'][0]  # Get the latest closing price
-
-# Define a function to retrieve data from Quandl
-def get_quandl_data(dataset):
-    try:
-        data = quandl.get(dataset)
-        if data is not None and not data.empty:
-            return data.tail(1)  # Get the latest available data
-        else:
-            st.warning(f"No data found for dataset {dataset}")
-            return None
-    except quandl.errors.quandl_error.NotFoundError:
-        st.error(f"Dataset {dataset} not found. Please check the code.")
-    except quandl.errors.quandl_error.AuthenticationError:
-        st.error("Invalid Quandl API Key. Please check your credentials.")
-    except quandl.errors.quandl_error.ForbiddenError:
-        st.error("Access denied to the dataset. It may require a premium subscription.")
-    except Exception as e:
-        st.error(f"Error fetching data from Quandl: {str(e)}")
-        return None
 
 # Define a function to retrieve data from Financial Modeling Prep (FMP)
 def get_fmp_data(endpoint, symbol):
